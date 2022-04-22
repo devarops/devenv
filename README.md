@@ -46,3 +46,11 @@ git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
 git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
 source ~/.profile
 ```
+
+> Para entrar con: `ssh devarops@islasgeci.dev`
+
+``` shell
+sudo vim /etc/ssh/sshd_config
+:%s/PasswordAuthentication no/PasswordAuthentication yes
+:x
+```
