@@ -60,5 +60,5 @@ sudo service ssh restart
 ```
 En tu cliente liviano:
 ```shell
-scp ~/.ssh/id_rsa* <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh/
+scp ~/.ssh/id_rsa* <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
 ```
