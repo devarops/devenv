@@ -34,20 +34,22 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 > `ssh root@islasgeci.dev`
 
 ```shell
-export NEW_USERNAME=devarops
+export NEW_USERNAME=<GITHUB USERNAME>
 adduser $NEW_USERNAME
 usermod -aG sudo $NEW_USERNAME
 mkdir --parents /home/$NEW_USERNAME/.ssh/
 cp ~/.ssh/id_rsa* /home/$NEW_USERNAME/.ssh/
 su - $NEW_USERNAME
 mkdir --parents ~/repositorios
-git clone --bare git@github.com:devarops/dotfiles.git ~/repositorios/dotfiles.git
+git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
 git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
 git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
 source ~/.profile
 ```
 
-> Para entrar con: `ssh devarops@islasgeci.dev`
+> Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
+
+### Para entrar con: `ssh devarops@islasgeci.dev`
 
 ```shell
 sudo vim /etc/ssh/sshd_config
