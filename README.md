@@ -49,7 +49,7 @@ source ~/.profile
 
 > Para entrar con: `ssh devarops@islasgeci.dev`
 
-``` shell
+```shell
 sudo vim /etc/ssh/sshd_config
 :%s/PasswordAuthentication no/PasswordAuthentication yes
 :x
