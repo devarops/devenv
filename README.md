@@ -49,10 +49,16 @@ source ~/.profile
 
 > Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
 
-### Para entrar con: `ssh devarops@islasgeci.dev`
+### Para copiar tu clave SSH privada al servidor
 
+En el servidor:
 ```shell
 sudo vim /etc/ssh/sshd_config
 :%s/PasswordAuthentication no/PasswordAuthentication yes
 :x
+sudo service ssh restart
+```
+En tu cliente liviano:
+```shell
+scp ~/.ssh/id_rsa* <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh/
 ```
