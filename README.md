@@ -37,9 +37,9 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
     ```
 1. En el servidor ejecuta:
     ```shell
-    export NEW_USERNAME=<GITHUB USERNAME>
-    adduser $NEW_USERNAME
-    usermod --append --groups docker,sudo $NEW_USERNAME
+    export GITHUB_USERNAME=<GITHUB USERNAME>
+    adduser $GITHUB_USERNAME
+    usermod --append --groups docker,sudo $GITHUB_USERNAME
     sudo vim /etc/ssh/sshd_config
     :%s/PasswordAuthentication no/PasswordAuthentication yes
     :x
@@ -51,10 +51,10 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 ## En tu cliente liviano:
 
 ```shell
-export NEW_USERNAME=<GITHUB USERNAME>
-ssh-copy-id $NEW_USERNAME@islasgeci.dev
-scp ~/.ssh/id_rsa $NEW_USERNAME@islasgeci.dev:/home/$NEW_USERNAME/.ssh
-ssh $NEW_USERNAME@islasgeci.dev
+export GITHUB_USERNAME=<GITHUB USERNAME>
+ssh-copy-id $GITHUB_USERNAME@islasgeci.dev
+scp ~/.ssh/id_rsa $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.ssh
+ssh $GITHUB_USERNAME@islasgeci.dev
 mkdir --parents ~/repositorios
 git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
 git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
@@ -66,10 +66,10 @@ source ~/.profile
 
 ```shell
 sudo apt install sshfs
-export NEW_USERNAME=<GITHUB USERNAME>
-sudo mkdir --parents /mnt/$NEW_USERNAME/
-sudo chown $USER:$USER /mnt/$NEW_USERNAME/
-sshfs $NEW_USERNAME@islasgeci.dev:/home/$NEW_USERNAME/repositorios/ /mnt/$NEW_USERNAME/
+export GITHUB_USERNAME=<GITHUB USERNAME>
+sudo mkdir --parents /mnt/$GITHUB_USERNAME/
+sudo chown $USER:$USER /mnt/$GITHUB_USERNAME/
+sshfs $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/repositorios/ /mnt/$GITHUB_USERNAME/
 ```
 
-> Para desmontar: `fusermount -u /mnt/$NEW_USERNAME/`
+> Para desmontar: `fusermount -u /mnt/$GITHUB_USERNAME/`
