@@ -37,7 +37,6 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 export NEW_USERNAME=<GITHUB USERNAME>
 adduser $NEW_USERNAME
 usermod --append --groups docker,sudo $NEW_USERNAME
-mkdir --parents /home/$NEW_USERNAME/.ssh/
 sudo vim /etc/ssh/sshd_config
 :%s/PasswordAuthentication no/PasswordAuthentication yes
 :x
@@ -49,7 +48,7 @@ sudo service ssh restart
 ### En tu cliente liviano:
 
 ```shell
-scp ~/.ssh/id_rsa* root@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
+scp ~/.ssh/id_rsa* <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
 ssh <GITHUB USERNAME>@islasgeci.dev
 mkdir --parents ~/repositorios
 git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
