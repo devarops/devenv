@@ -36,7 +36,7 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 ```shell
 export NEW_USERNAME=<GITHUB USERNAME>
 adduser $NEW_USERNAME
-usermod -aG sudo $NEW_USERNAME
+usermod --append --groups docker,sudo $NEW_USERNAME
 mkdir --parents /home/$NEW_USERNAME/.ssh/
 cp ~/.ssh/id_rsa* /home/$NEW_USERNAME/.ssh/
 su - $NEW_USERNAME
