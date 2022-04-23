@@ -51,7 +51,8 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 ## En tu cliente liviano:
 
 ```shell
-scp -pr ~/.ssh <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
+ssh-copy-id devarops@islasgeci.dev
+scp ~/.ssh/id_rsa <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
 ssh <GITHUB USERNAME>@islasgeci.dev
 mkdir --parents ~/repositorios
 git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
