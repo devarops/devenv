@@ -10,7 +10,6 @@ Crea dos Droplets:
 
 ```shell
 scp ~/.ssh/id_rsa* root@<WORKSTATION IP>:/root/.ssh/
-ssh-keygen -f "/home/evaro/.ssh/known_hosts" -R "islasgeci.dev"
 ```
 
 ## En el servidor `workstation`
@@ -31,17 +30,21 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 
 ## En el servidor `devserver`
 
-1. Entra con: `ssh root@islasgeci.dev`
-2. Ejecuta:
-```shell
-export NEW_USERNAME=<GITHUB USERNAME>
-adduser $NEW_USERNAME
-usermod --append --groups docker,sudo $NEW_USERNAME
-sudo vim /etc/ssh/sshd_config
-:%s/PasswordAuthentication no/PasswordAuthentication yes
-:x
-sudo service ssh restart
-```
+1. Entra con:
+    ```shell
+    ssh-keygen -f "/home/evaro/.ssh/known_hosts" -R "islasgeci.dev"
+    ssh root@islasgeci.dev
+    ```
+1. En el servidor ejecuta:
+    ```shell
+    export NEW_USERNAME=<GITHUB USERNAME>
+    adduser $NEW_USERNAME
+    usermod --append --groups docker,sudo $NEW_USERNAME
+    sudo vim /etc/ssh/sshd_config
+    :%s/PasswordAuthentication no/PasswordAuthentication yes
+    :x
+    sudo service ssh restart
+    ```
 
 > Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
 
