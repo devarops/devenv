@@ -31,33 +31,29 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 
 ## En el servidor `devserver`
 
-> `ssh root@islasgeci.dev`
-
+1. Entra con: `ssh root@islasgeci.dev`
+2. Ejecuta:
 ```shell
 export NEW_USERNAME=<GITHUB USERNAME>
 adduser $NEW_USERNAME
 usermod --append --groups docker,sudo $NEW_USERNAME
 mkdir --parents /home/$NEW_USERNAME/.ssh/
-su - $NEW_USERNAME
-mkdir --parents ~/repositorios
-git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
-git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
-git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
-source ~/.profile
-```
-
-> Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
-
-### Para copiar tu clave SSH privada al servidor
-
-En el servidor:
-```shell
 sudo vim /etc/ssh/sshd_config
 :%s/PasswordAuthentication no/PasswordAuthentication yes
 :x
 sudo service ssh restart
 ```
-En tu cliente liviano:
+
+> Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
+
+### En tu cliente liviano:
+
 ```shell
 scp ~/.ssh/id_rsa* root@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
+ssh <GITHUB USERNAME>@islasgeci.dev
+mkdir --parents ~/repositorios
+git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
+git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
+git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
+source ~/.profile
 ```
