@@ -45,7 +45,7 @@ sudo service ssh restart
 
 > Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
 
-### En tu cliente liviano:
+## En tu cliente liviano:
 
 ```shell
 scp -pr ~/.ssh <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
