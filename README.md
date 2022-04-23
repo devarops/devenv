@@ -62,10 +62,14 @@ git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --loc
 source ~/.profile
 ```
 
-## sshfs
+## SSHFS: Monta localmente los repositorios del servidor
 
 ```shell
+sudo apt install sshfs
 export NEW_USERNAME=<GITHUB USERNAME>
 sudo mkdir --parents /mnt/$NEW_USERNAME/
 sudo chown $USER:$USER /mnt/$NEW_USERNAME/
+sshfs $NEW_USERNAME@islasgeci.dev:/home/$NEW_USERNAME/repositorios/ /mnt/$NEW_USERNAME/
 ```
+
+> Para desmontar: `fusermount -u /mnt/$NEW_USERNAME/`
