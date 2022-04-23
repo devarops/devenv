@@ -51,12 +51,21 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 ## En tu cliente liviano:
 
 ```shell
-ssh-copy-id devarops@islasgeci.dev
-scp ~/.ssh/id_rsa <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
-ssh <GITHUB USERNAME>@islasgeci.dev
+export NEW_USERNAME=<GITHUB USERNAME>
+ssh-copy-id $NEW_USERNAME@islasgeci.dev
+scp ~/.ssh/id_rsa $NEW_USERNAME@islasgeci.dev:/home/$NEW_USERNAME/.ssh
+ssh $NEW_USERNAME@islasgeci.dev
 mkdir --parents ~/repositorios
 git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
 git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
 git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
 source ~/.profile
+```
+
+## sshfs
+
+```shell
+export NEW_USERNAME=<GITHUB USERNAME>
+sudo mkdir --parents /mnt/$NEW_USERNAME/
+sudo chown $USER:$USER /mnt/$NEW_USERNAME/
 ```
