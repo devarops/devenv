@@ -38,7 +38,6 @@ export NEW_USERNAME=<GITHUB USERNAME>
 adduser $NEW_USERNAME
 usermod --append --groups docker,sudo $NEW_USERNAME
 mkdir --parents /home/$NEW_USERNAME/.ssh/
-cp ~/.ssh/id_rsa* /home/$NEW_USERNAME/.ssh/
 su - $NEW_USERNAME
 mkdir --parents ~/repositorios
 git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
