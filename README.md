@@ -48,7 +48,7 @@ sudo service ssh restart
 ### En tu cliente liviano:
 
 ```shell
-scp ~/.ssh/id_rsa* <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
+scp -pr ~/.ssh <GITHUB USERNAME>@islasgeci.dev:/home/<GITHUB USERNAME>/.ssh
 ssh <GITHUB USERNAME>@islasgeci.dev
 mkdir --parents ~/repositorios
 git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
