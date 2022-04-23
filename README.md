@@ -62,7 +62,7 @@ git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --loc
 source ~/.profile
 ```
 
-## SSHFS: Monta localmente los repositorios del servidor
+## SSHFS: Monta en tu cliente liviano los repositorios del servidor
 
 ```shell
 sudo apt install sshfs
