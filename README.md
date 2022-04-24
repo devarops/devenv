@@ -14,10 +14,9 @@ scp ~/.ssh/id_rsa root@<WORKSTATION IP>:/root/.ssh/
 
 ## En el servidor `workstation`
 
-> `ssh root@<WORKSTATION IP>`
-
+1. Entra con: `ssh root@<WORKSTATION IP>`
 1. Agrega [bóveda secreta](https://docs.google.com/document/d/1lY7ycXs4J8wp1OyJCmPsvfB7YdQqscqL52cIZxBP6Rw)
-2. Ejecuta:
+1. Ejecuta:
 ```shell
 apt update && apt install --yes docker.io
 git clone https://github.com/IslasGECI/development_server_setup.git
