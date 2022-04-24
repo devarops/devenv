@@ -6,13 +6,13 @@ Crea dos Droplets:
 - `devserver`
     - Reasigna la [IP flotante](https://cloud.digitalocean.com/networking/floating_ips) correspondiente a `devserver`
 
-## En tu cliente liviano
+## En tu cliente liviano copia las credenciales hacia el servidor `workstation`
 
 ```shell
 scp ~/.ssh/id_rsa root@<WORKSTATION IP>:/root/.ssh/
 ```
 
-## En el servidor `workstation`
+## En el servidor `workstation` configura el servidor `devserver`
 
 1. Entra con: `ssh root@<WORKSTATION IP>`
 1. Agrega [bóveda secreta](https://docs.google.com/document/d/1lY7ycXs4J8wp1OyJCmPsvfB7YdQqscqL52cIZxBP6Rw)
@@ -27,7 +27,7 @@ docker push islasgeci/development_server_setup:latest
 docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa --volume ${HOME}/.vault/.secrets:/root/.vault/.secrets islasgeci/development_server_setup:latest make
 ```
 
-## En el servidor `devserver`
+## En el servidor `devserver` crea una cuenta de usuario
 
 1. Entra con:
     ```shell
@@ -47,15 +47,16 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 
 > Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
 
-## En tu cliente liviano:
+## En tu cliente liviano copia las credenciales hacia el servidor `devserver`
 
 ```shell
 export GITHUB_USERNAME=<GITHUB USERNAME>
 ssh-copy-id $GITHUB_USERNAME@islasgeci.dev
 scp ~/.ssh/id_rsa $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.ssh
+scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
 ```
 
-## En el servidor `devserver`
+## En el servidor `devserver` instala tu configuración personal
 
 1. Entra con: `ssh $GITHUB_USERNAME@islasgeci.dev`
 1. Ejecuta:
