@@ -31,7 +31,7 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 
 1. Entra con:
     ```shell
-    ssh-keygen -f "/home/evaro/.ssh/known_hosts" -R "islasgeci.dev"
+    ssh-keygen -f "$HOME/.ssh/known_hosts" -R "islasgeci.dev"
     ssh root@islasgeci.dev
     ```
 1. En el servidor ejecuta:
