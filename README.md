@@ -9,7 +9,7 @@ Crea dos Droplets:
 ## En tu cliente liviano
 
 ```shell
-scp ~/.ssh/id_rsa* root@<WORKSTATION IP>:/root/.ssh/
+scp ~/.ssh/id_rsa root@<WORKSTATION IP>:/root/.ssh/
 ```
 
 ## En el servidor `workstation`
