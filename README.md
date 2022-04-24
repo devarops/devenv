@@ -6,6 +6,12 @@ Crea dos Droplets:
 - `devserver`
     - Reasigna la [IP flotante](https://cloud.digitalocean.com/networking/floating_ips) correspondiente a `devserver`
 
+## En tu cliente liviano
+
+```shell
+scp ~/.ssh/id_rsa root@<WORKSTATION IP>:/root/.ssh/
+```
+
 ## En el servidor `workstation`
 
 1. Entra con: `ssh root@<WORKSTATION IP>`
