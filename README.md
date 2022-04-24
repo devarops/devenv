@@ -53,7 +53,13 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 export GITHUB_USERNAME=<GITHUB USERNAME>
 ssh-copy-id $GITHUB_USERNAME@islasgeci.dev
 scp ~/.ssh/id_rsa $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.ssh
-ssh $GITHUB_USERNAME@islasgeci.dev
+```
+
+## En el servidor `devserver`
+
+1. Entra con: `ssh $GITHUB_USERNAME@islasgeci.dev`
+1. Ejecuta:
+```shell
 mkdir --parents ~/repositorios
 git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
 git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
@@ -61,7 +67,7 @@ git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --loc
 source ~/.profile
 ```
 
-## SSHFS: Monta en tu cliente liviano los repositorios del servidor
+## En tu cliente liviano monta los repositorios del servidor
 
 ```shell
 sudo apt install sshfs
