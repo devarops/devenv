@@ -39,7 +39,6 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
     export GITHUB_USERNAME=<GITHUB USERNAME>
     adduser $GITHUB_USERNAME
     usermod --append --groups docker,sudo $GITHUB_USERNAME
-    sudo vim /etc/ssh/sshd_config
     sed --in-place 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
     sudo service ssh restart
     ```
