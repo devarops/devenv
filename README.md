@@ -70,8 +70,7 @@ scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
     cd ~/repositorios
     git clone git@github.com:devarops/pde.git
     cd pde
-    make install
-    make tests
+    make
     ```
 
 ## En tu cliente liviano monta los repositorios del servidor
