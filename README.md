@@ -70,7 +70,6 @@ source ~/.profile
 
 ```shell
 sudo apt install sshfs
-export GITHUB_USERNAME=<GITHUB USERNAME>
 sudo mkdir --parents /mnt/$GITHUB_USERNAME/
 sudo chown $USER:$USER /mnt/$GITHUB_USERNAME/
 sshfs $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/repositorios/ /mnt/$GITHUB_USERNAME/
