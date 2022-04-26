@@ -58,13 +58,21 @@ scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
 
 1. Entra con: `ssh $GITHUB_USERNAME@islasgeci.dev`
 1. Ejecuta:
-```shell
-mkdir --parents ~/repositorios
-git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
-git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
-git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
-source ~/.profile
-```
+    ```shell
+    mkdir --parents ~/repositorios
+    git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
+    git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
+    git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
+    source ~/.profile
+    ```
+1. Instala PDE:
+    ```shell
+    cd ~/repositorios
+    git clone git@github.com:devarops/pde.git
+    cd pde
+    make install
+    make tests
+    ```
 
 ## En tu cliente liviano monta los repositorios del servidor
 
