@@ -70,7 +70,14 @@ ssh-add ~/.ssh/id_rsa
           ForwardAgent yes
         ```
         > Checa [este ejemplo](https://github.com/devarops/dotfiles/blob/develop/.ssh/config).
-1. Ejecuta:
+1. Instala tu PDE:
+    ```shell
+    cd ~/repositorios
+    git clone git@github.com:devarops/pde.git
+    cd pde
+    make
+    ```
+1. Instala tus archivos de configuración:
     ```shell
     mkdir --parents ~/repositorios
     git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
@@ -78,15 +85,8 @@ ssh-add ~/.ssh/id_rsa
     git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
     source ~/.profile
     ```
-1. Instala PDE:
-    ```shell
-    cd ~/repositorios
-    git clone git@github.com:devarops/pde.git
-    cd pde
-    make
-    ```
 
-## En tu cliente liviano monta los repositorios del servidor
+## Opcional: En tu cliente liviano monta los repositorios del servidor
 
 ```shell
 sudo apt install sshfs
