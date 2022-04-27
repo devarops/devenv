@@ -9,7 +9,7 @@ scp ~/.ssh/id_rsa root@<WORKSTATION IP>:/root/.ssh/
 scp -pr ~/.vault root@<WORKSTATION IP>:/root/.vault
 ```
 
-## En el servidor `workstation` configura el servidor `devserver`
+## Desde el servidor `workstation` crea y configura el servidor `devserver`
 
 1. Entra con: `ssh root@<WORKSTATION IP>`
 1. Agrega [bóveda secreta](https://docs.google.com/document/d/1lY7ycXs4J8wp1OyJCmPsvfB7YdQqscqL52cIZxBP6Rw)
