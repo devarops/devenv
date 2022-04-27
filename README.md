@@ -52,11 +52,12 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 export GITHUB_USERNAME=<GITHUB USERNAME>
 ssh-copy-id $GITHUB_USERNAME@islasgeci.dev
 scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
+ssh-add ~/.ssh/id_rsa
 ```
 
 ## En el servidor `devserver` instala tu configuración personal
 
-1. Entra con: `ssh $GITHUB_USERNAME@islasgeci.dev`
+1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`
 1. Ejecuta:
     ```shell
     mkdir --parents ~/repositorios
