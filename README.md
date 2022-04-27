@@ -51,7 +51,6 @@ docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_r
 ```shell
 export GITHUB_USERNAME=<GITHUB USERNAME>
 ssh-copy-id $GITHUB_USERNAME@islasgeci.dev
-scp ~/.ssh/id_rsa $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.ssh
 scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
 ```
 
