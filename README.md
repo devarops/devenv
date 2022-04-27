@@ -63,7 +63,7 @@ ssh-add ~/.ssh/id_rsa
 
 ## En el servidor `devserver` instala tu configuración personal
 
-1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`[^ForwardAgent]
+1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`[^ForwardAgent].
 1. Instala tu PDE:
     ```shell
     cd ~/repositorios
