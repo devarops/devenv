@@ -63,7 +63,7 @@ ssh-add ~/.ssh/id_rsa
 
 ## En el servidor `devserver` instala tu configuración personal
 
-1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`[^ForwardAgent].
+1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`[^forward].
 1. Instala tu PDE:
     ```shell
     cd ~/repositorios
@@ -80,7 +80,7 @@ ssh-add ~/.ssh/id_rsa
     source ~/.profile
     ```
 
-[^ForwardAgent]:
+[^forward]:
     Alternativamente, puedes agregar la opción `ForwardAgent yes` a `~/.ssh/config` en tu cliente liviano:
     ```
     Host islasgeci.dev
