@@ -64,7 +64,8 @@ ssh-add ~/.ssh/id_rsa
 ## En el servidor `devserver` instala tu configuración personal
 
 1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`[^forward].
-1. Instala tu PDE:
+2. Crea directorio para clonar repositorios: `mkdir --parents ~/repositorios`
+3. Instala tu PDE:
     ```shell
     cd ~/repositorios
     git clone git@github.com:devarops/pde.git
@@ -73,7 +74,6 @@ ssh-add ~/.ssh/id_rsa
     ```
 1. Instala tus archivos de configuración:
     ```shell
-    mkdir --parents ~/repositorios
     git clone --bare git@github.com:$USER/dotfiles.git ~/repositorios/dotfiles.git
     git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} checkout
     git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
