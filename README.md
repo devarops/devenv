@@ -1,6 +1,6 @@
 ## En DigitalOcean
 
-Crea Droplets `workstation`.
+Crea una Droplet llamada `workstation`.
 
 ## Desde tu cliente liviano copia las credenciales hacia el servidor `workstation`
 
