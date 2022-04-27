@@ -22,7 +22,7 @@ git checkout feature/create_droplet
 docker build --tag islasgeci/development_server_setup:latest .
 docker login
 docker push islasgeci/development_server_setup:latest
-source /root/.vault/.secrets
+source ${HOME}/.vault/.secrets
 docker run \
     --env DO_PAT \
     --interactive \
