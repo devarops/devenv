@@ -1,15 +1,12 @@
 ## En DigitalOcean
 
-Crea dos Droplets:
+Crea Droplets `workstation`.
 
-- `workstation`
-- `devserver`
-    - Reasigna la [IP flotante](https://cloud.digitalocean.com/networking/floating_ips) correspondiente a `devserver`
-
-## En tu cliente liviano copia las credenciales hacia el servidor `workstation`
+## Desde tu cliente liviano copia las credenciales hacia el servidor `workstation`
 
 ```shell
 scp ~/.ssh/id_rsa root@<WORKSTATION IP>:/root/.ssh/
+scp -pr ~/.vault root@<WORKSTATION IP>:/root/.vault
 ```
 
 ## En el servidor `workstation` configura el servidor `devserver`
@@ -25,7 +22,15 @@ git checkout feature/create_droplet
 docker build --tag islasgeci/development_server_setup:latest .
 docker login
 docker push islasgeci/development_server_setup:latest
-docker run --interactive --rm --tty --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa --volume ${HOME}/.vault/.secrets:/root/.vault/.secrets islasgeci/development_server_setup:latest make
+source /root/.vault/.secrets
+docker run \
+    --env DO_PAT \
+    --interactive \
+    --rm \
+    --tty \
+    --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa \
+    --volume ${HOME}/.vault/.secrets:/root/.vault/.secrets \
+    islasgeci/development_server_setup:latest make
 ```
 
 ## En el servidor `devserver` crea una cuenta de usuario
