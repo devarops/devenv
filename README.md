@@ -58,6 +58,12 @@ ssh-add ~/.ssh/id_rsa
 ## En el servidor `devserver` instala tu configuración personal
 
 1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`
+    -  Alternativamente, puedes agregar la opción `ForwardAgent yes` a `~/.ssh/config`:
+        ```
+        Host islasgeci.dev
+          ForwardAgent yes
+        ```
+        > Checa [este ejemplo](https://github.com/devarops/dotfiles/blob/develop/.ssh/config).
 1. Ejecuta:
     ```shell
     mkdir --parents ~/repositorios
