@@ -14,24 +14,25 @@ scp -pr ~/.vault root@<WORKSTATION IP>:/root/.vault
 1. Entra con: `ssh root@<WORKSTATION IP>`
 1. Agrega [bóveda secreta](https://docs.google.com/document/d/1lY7ycXs4J8wp1OyJCmPsvfB7YdQqscqL52cIZxBP6Rw)
 1. Ejecuta:
-```shell
-apt update && apt install --yes docker.io
-git clone https://github.com/IslasGECI/development_server_setup.git
-cd development_server_setup
-git checkout feature/create_droplet
-docker build --tag islasgeci/development_server_setup:latest .
-docker login
-docker push islasgeci/development_server_setup:latest
-source ${HOME}/.vault/.secrets
-docker run \
-    --env DO_PAT \
-    --interactive \
-    --rm \
-    --tty \
-    --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa \
-    --volume ${HOME}/.vault/.secrets:/root/.vault/.secrets \
-    islasgeci/development_server_setup:latest make
-```
+    ```shell
+    apt update && apt install --yes docker.io
+    git clone https://github.com/IslasGECI/development_server_setup.git
+    cd development_server_setup
+    git checkout feature/create_droplet
+    docker build --tag islasgeci/development_server_setup:latest .
+    docker login
+    docker push islasgeci/development_server_setup:latest
+    source ${HOME}/.vault/.secrets
+    docker run \
+        --env DO_PAT \
+        --interactive \
+        --rm \
+        --tty \
+        --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa \
+        --volume ${HOME}/.vault/.secrets:/root/.vault/.secrets \
+        islasgeci/development_server_setup:latest make
+    ```
+1. Destruye el servidor `workstation`
 
 ## En el servidor `devserver` crea una cuenta de usuario
 
