@@ -63,13 +63,7 @@ ssh-add ~/.ssh/id_rsa
 
 ## En el servidor `devserver` instala tu configuración personal
 
-1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`
-    -  Alternativamente, puedes agregar la opción `ForwardAgent yes` a `~/.ssh/config`:
-        ```
-        Host islasgeci.dev
-          ForwardAgent yes
-        ```
-        > Checa [este ejemplo](https://github.com/devarops/dotfiles/blob/develop/.ssh/config).
+1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`[^ForwardAgent]
 1. Instala tu PDE:
     ```shell
     cd ~/repositorios
@@ -85,6 +79,14 @@ ssh-add ~/.ssh/id_rsa
     git --git-dir=${HOME}/repositorios/dotfiles.git --work-tree=${HOME} config --local status.showUntrackedFiles no
     source ~/.profile
     ```
+
+[^ForwardAgent]:
+    Alternativamente, puedes agregar la opción `ForwardAgent yes` a `~/.ssh/config` en tu cliente liviano:
+    ```
+    Host islasgeci.dev
+      ForwardAgent yes
+    ```
+    Revisa [este ejemplo](https://github.com/devarops/dotfiles/blob/develop/.ssh/config).
 
 ## Opcional: En tu cliente liviano monta los repositorios del servidor
 
