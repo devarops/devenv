@@ -47,30 +47,11 @@ scp -pr ~/.vault root@<WORKSTATION IP>:/root/.vault
     ```
 1. Destruye el servidor `workstation`
 
-## En el servidor `devserver` crea una cuenta de usuario
-
-1. Entra con:
-    ```shell
-    ssh-keygen -f "$HOME/.ssh/known_hosts" -R "islasgeci.dev"
-    ssh root@islasgeci.dev
-    ```
-1. En el servidor ejecuta:
-    ```shell
-    export GITHUB_USERNAME=<GITHUB USERNAME>
-    adduser $GITHUB_USERNAME
-    usermod --append --groups docker,sudo $GITHUB_USERNAME
-    sed --in-place 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-    sudo service ssh restart
-    exit
-    ```
-
 > Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
 
 ## En tu cliente liviano copia las credenciales hacia el servidor `devserver`
 
 ```shell
-export GITHUB_USERNAME=<GITHUB USERNAME>
-ssh-copy-id $GITHUB_USERNAME@islasgeci.dev
 scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
 ```
 
