@@ -84,6 +84,7 @@ scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
     git clone git@github.com:devarops/pde.git
     cd pde
     make
+    cd -
     ```
 1. Instala tus archivos de configuración:
     ```shell
