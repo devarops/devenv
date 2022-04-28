@@ -48,6 +48,7 @@ scp -pr ~/.vault root@<WORKSTATION IP>:/root/.vault
     usermod --append --groups docker,sudo $GITHUB_USERNAME
     sed --in-place 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
     sudo service ssh restart
+    exit
     ```
 
 > Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
