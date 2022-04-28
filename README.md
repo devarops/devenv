@@ -1,3 +1,16 @@
+# Configura tu entorno para desarrollo
+
+## Autenticación mediante SSH
+
+Una única vez en tu cliente liviano:
+
+1. Crea tu clave SSH con: `ssh-keygen`
+1. Agrega tu clave SSH al agente para hacer _forwarding_: `ssh-add ~/.ssh/id_rsa`
+1. Agrega la clave SSH pública[^ssh_pub] de tu estación de trabajo a:
+    - [Bitbucket](https://bitbucket.org/account/settings/ssh-keys/),
+    - [DigitalOcean](https://cloud.digitalocean.com/account/security) y
+    - [GitHub](https://github.com/settings/keys/)
+
 ## En DigitalOcean
 
 Crea una Droplet llamada `workstation`.
@@ -59,7 +72,6 @@ scp -pr ~/.vault root@<WORKSTATION IP>:/root/.vault
 export GITHUB_USERNAME=<GITHUB USERNAME>
 ssh-copy-id $GITHUB_USERNAME@islasgeci.dev
 scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
-ssh-add ~/.ssh/id_rsa
 ```
 
 ## En el servidor `devserver` instala tu configuración personal
