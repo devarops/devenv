@@ -28,7 +28,7 @@ scp -pr ~/.vault root@$WORKSTATION_IP:/root/.vault
 1. Entra con: `ssh root@$WORKSTATION_IP`
 1. Ejecuta:
     ```shell
-    apt update && apt install --yes docker.io
+    sudo apt update && sudo apt install --yes docker.io
     git clone https://github.com/IslasGECI/development_server_setup.git
     cd development_server_setup
     git checkout feature/create_droplet
