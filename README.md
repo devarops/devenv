@@ -31,7 +31,7 @@ scp -pr ~/.vault root@$WORKSTATION_IP:/root/.vault
     sudo apt update && sudo apt install --yes docker.io
     git clone https://github.com/IslasGECI/development_server_setup.git
     cd development_server_setup
-    git checkout feature/create_droplet
+    git checkout feature/import_dorfiles
     docker build --tag islasgeci/development_server_setup:latest .
     docker login
     docker push islasgeci/development_server_setup:latest
