@@ -47,13 +47,12 @@ scp -pr ~/.vault root@$WORKSTATION_IP:/root/.vault
     ```
 1. Destruye el servidor `workstation`
 
-> Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
-
 ## En tu cliente liviano copia las credenciales hacia el servidor `devserver`
 
 ```shell
 scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
 ```
+> Reemplaza `<GITHUB USERNAME>` con tu nombre de usuario en GitHub
 
 ## En el servidor `devserver` instala tu configuración personal
 
