@@ -52,6 +52,7 @@ scp -pr ~/.vault root@$WORKSTATION_IP:/root/.vault
 ```shell
 export GITHUB_USERNAME=<GITHUB USERNAME>
 ssh-keygen -f "$HOME/.ssh/known_hosts" -R "islasgeci.dev"
+ssh-keyscan "islasgeci.dev" >> "$HOME/.ssh/known_hosts"
 scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
 ```
 
