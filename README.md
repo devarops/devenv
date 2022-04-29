@@ -57,12 +57,6 @@ scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
 ## En el servidor `devserver` instala tu configuración personal
 
 1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`[^forward].
-1. Instala tus archivos de configuración:
-    ```shell
-    git clone https://github.com/devarops/dotfiles.git
-    cd dotfiles
-    make
-    ```
 
 [^forward]:
     Alternativamente, puedes agregar la opción `ForwardAgent yes` a `~/.ssh/config` en tu cliente liviano:
