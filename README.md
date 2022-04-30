@@ -20,7 +20,6 @@ Crea una Droplet llamada `workstation`.
 ```shell
 export WORKSTATION_IP=<WORKSTATION IP>
 scp ~/.ssh/id_rsa root@$WORKSTATION_IP:/root/.ssh/
-scp -pr ~/.vault root@$WORKSTATION_IP:/root/.vault
 ```
 
 ## Desde el servidor `workstation` crea y configura el servidor `devserver`
@@ -35,14 +34,13 @@ scp -pr ~/.vault root@$WORKSTATION_IP:/root/.vault
     docker build --tag islasgeci/development_server_setup:latest .
     docker login
     docker push islasgeci/development_server_setup:latest
-    source ${HOME}/.vault/.secrets
+    export DO_PAT=<Token de DigitalOcean>
     docker run \
         --env DO_PAT \
         --interactive \
         --rm \
         --tty \
         --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa \
-        --volume ${HOME}/.vault/.secrets:/root/.vault/.secrets \
         islasgeci/development_server_setup:latest make
     ```
 1. Destruye el servidor `workstation`
@@ -50,15 +48,13 @@ scp -pr ~/.vault root@$WORKSTATION_IP:/root/.vault
 ## En tu cliente liviano copia las credenciales hacia el servidor `devserver`
 
 ```shell
-export GITHUB_USERNAME=<GITHUB USERNAME>
 ssh-keygen -f "$HOME/.ssh/known_hosts" -R "islasgeci.dev"
 ssh-keyscan "islasgeci.dev" >> "$HOME/.ssh/known_hosts"
-scp -pr ~/.vault $GITHUB_USERNAME@islasgeci.dev:/home/$GITHUB_USERNAME/.vault
+export DEVELOPER=<Tu nombre de usuario del servidor>
+scp -pr ~/.vault $DEVELOPER@islasgeci.dev:/home/$DEVELOPER/.vault
 ```
 
-## En el servidor `devserver` instala tu configuración personal
-
-1. Entra con: `ssh -o ForwardAgent=yes $GITHUB_USERNAME@islasgeci.dev`[^forward].
+Finalemente, entra al `devserver` con: `ssh -o ForwardAgent=yes $DEVELOPER@islasgeci.dev`[^forward].
 
 [^forward]:
     Alternativamente, puedes agregar la opción `ForwardAgent yes` a `~/.ssh/config` en tu cliente liviano:
