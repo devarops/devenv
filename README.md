@@ -53,7 +53,7 @@ export DEVELOPER=<Tu nombre de usuario del servidor>
 scp -pr ~/.vault $DEVELOPER@islasgeci.dev:/home/$DEVELOPER/.vault
 ```
 
-Finalemente, entra al `devserver` con: `ssh -o ForwardAgent=yes $DEVELOPER@islasgeci.dev`[^forward].
+Finalmente, entra al `devserver` con: `ssh -o ForwardAgent=yes $DEVELOPER@islasgeci.dev`[^forward].
 
 [^forward]:
     Alternativamente, puedes agregar la opción `ForwardAgent yes` a `~/.ssh/config` en tu cliente liviano:
