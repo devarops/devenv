@@ -51,6 +51,7 @@ ssh-keygen -f "$HOME/.ssh/known_hosts" -R "islasgeci.dev"
 ssh-keyscan "islasgeci.dev" >> "$HOME/.ssh/known_hosts"
 export DEVELOPER=<Tu nombre de usuario del servidor>
 scp -pr ~/.vault $DEVELOPER@islasgeci.dev:/home/$DEVELOPER/.vault
+scp ~/todo.md $DEVELOPER@islasgeci.dev:/home/$DEVELOPER/todo.md
 ```
 
 Finalmente, entra al `devserver` con: `ssh -o ForwardAgent=yes $DEVELOPER@islasgeci.dev`[^forward].
