@@ -6,7 +6,7 @@ Una única vez en tu cliente liviano:
 
 1. Crea tu clave SSH con: `ssh-keygen`
 1. Agrega tu clave SSH al agente para hacer _forwarding_: `ssh-add ~/.ssh/id_rsa`
-1. Agrega la clave SSH pública[^ssh_pub] de tu estación de trabajo a:
+1. Agrega la clave SSH pública de tu estación de trabajo a:
     - [Bitbucket](https://bitbucket.org/account/settings/ssh-keys/),
     - [DigitalOcean](https://cloud.digitalocean.com/account/security) y
     - [GitHub](https://github.com/settings/keys/)
