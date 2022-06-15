@@ -13,16 +13,16 @@ Una única vez en tu cliente liviano:
 
 ## En DigitalOcean
 
-Crea una Droplet llamada `workstation`.
+Crea una Droplet llamada `provisioner`.
 
-## Desde tu cliente liviano copia las credenciales hacia el servidor `workstation`
+## Desde tu cliente liviano copia las credenciales hacia el servidor `provisioner`
 
 ```shell
 export PROVISIONER_IP=<PROVISIONER IP>
 scp ~/.ssh/id_rsa root@$PROVISIONER_IP:/root/.ssh/
 ```
 
-## Desde el servidor `workstation` crea y configura el servidor `devserver`
+## Desde el servidor `provisioner` crea y configura el servidor `devserver`
 
 1. Entra con: `ssh root@$PROVISIONER_IP`
 1. Ejecuta:
@@ -43,7 +43,7 @@ scp ~/.ssh/id_rsa root@$PROVISIONER_IP:/root/.ssh/
         --volume ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa \
         islasgeci/development_server_setup:latest make
     ```
-1. Destruye el servidor `workstation`
+1. Destruye el servidor `provisioner`
 
 ## En tu cliente liviano copia las credenciales hacia el servidor `devserver`
 
