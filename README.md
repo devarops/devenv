@@ -18,13 +18,13 @@ Crea una Droplet llamada `workstation`.
 ## Desde tu cliente liviano copia las credenciales hacia el servidor `workstation`
 
 ```shell
-export WORKSTATION_IP=<WORKSTATION IP>
-scp ~/.ssh/id_rsa root@$WORKSTATION_IP:/root/.ssh/
+export PROVISIONER_IP=<PROVISIONER IP>
+scp ~/.ssh/id_rsa root@$PROVISIONER_IP:/root/.ssh/
 ```
 
 ## Desde el servidor `workstation` crea y configura el servidor `devserver`
 
-1. Entra con: `ssh root@$WORKSTATION_IP`
+1. Entra con: `ssh root@$PROVISIONER_IP`
 1. Ejecuta:
     ```shell
     sudo apt update && sudo apt install --yes docker.io
