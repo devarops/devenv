@@ -30,7 +30,6 @@ scp ~/.ssh/id_rsa root@$PROVISIONER_IP:/root/.ssh/
     sudo apt update && sudo apt install --yes docker.io
     git clone https://github.com/IslasGECI/development_server_setup.git
     cd development_server_setup
-    git checkout feature/compose
     docker build --tag islasgeci/development_server_setup:latest .
     docker login
     docker push islasgeci/development_server_setup:latest
