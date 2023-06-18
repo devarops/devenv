@@ -28,8 +28,6 @@ scp ~/.ssh/id_rsa root@$PROVISIONER_IP:/root/.ssh/
 1. Ejecuta:
     ```shell
     sudo apt update && sudo apt install --yes docker.io
-    git clone https://github.com/IslasGECI/development_server_setup.git
-    cd development_server_setup
     docker pull islasgeci/development_server_setup:latest
     export DO_PAT=<Token de DigitalOcean>
     docker run \
