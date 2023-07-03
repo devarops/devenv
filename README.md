@@ -10,6 +10,18 @@ Una única vez en tu cliente liviano:
     - [Bitbucket](https://bitbucket.org/account/settings/ssh-keys/),
     - [DigitalOcean](https://cloud.digitalocean.com/account/security) y
     - [GitHub](https://github.com/settings/keys/)
+1. Instala [dotfiles](https://github.com/devarops/dotfiles):
+```shell
+git clone git@github.com:devarops/dotfiles.git
+cd dotfiles
+make install
+```
+1. Configura el cliente liviano:
+```shell
+sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.orig
+sudo ln -s ~/.config/nixos/configuration.nix /etc/nixos/configuration.nix
+nixos-rebuild switch --upgrade-all
+```
 
 ## En DigitalOcean
 
