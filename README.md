@@ -20,7 +20,7 @@ make install
 ```shell
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.orig
 sudo ln -s ~/.config/nixos/configuration.nix /etc/nixos/configuration.nix
-nixos-rebuild switch --upgrade-all
+sudo nixos-rebuild switch --upgrade-all
 ```
 
 ## En DigitalOcean
