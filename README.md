@@ -5,23 +5,28 @@
 Una única vez en tu cliente liviano:
 
 1. Crea tu clave SSH con: `ssh-keygen`
-1. Agrega tu clave SSH al agente para hacer _forwarding_: `ssh-add ~/.ssh/id_rsa`
+1. Agrega tu clave SSH al agente para hacer _forwarding_
+    - En Linux ejecuta: `ssh-add ~/.ssh/id_ed25519`
+    - En WSL agrega a `~/.bashrc`:
+    ```shell
+    eval `ssh-agent -s`
+    ssh-add ~/.ssh/id_ed25519
+    ```
 1. Agrega la clave SSH pública de tu estación de trabajo a:
-    - [Bitbucket](https://bitbucket.org/account/settings/ssh-keys/),
-    - [DigitalOcean](https://cloud.digitalocean.com/account/security) y
+    - [Bitbucket](https://bitbucket.org/account/settings/ssh-keys/) y
     - [GitHub](https://github.com/settings/keys/)
 1. Instala [dotfiles](https://github.com/devarops/dotfiles):
-```shell
-git clone git@github.com:devarops/dotfiles.git
-cd dotfiles
-make install
-```
+    ```shell
+    git clone git@github.com:devarops/dotfiles.git
+    cd dotfiles
+    make install
+    ```
 1. Configura el cliente liviano:
-```shell
-sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.orig
-sudo ln -s ~/.config/nixos/configuration.nix /etc/nixos/configuration.nix
-sudo nixos-rebuild switch --upgrade-all
-```
+    ```shell
+    sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.orig
+    sudo ln -s ~/.config/nixos/configuration.nix /etc/nixos/configuration.nix
+    sudo nixos-rebuild switch --upgrade-all
+    ```
 
 ## En DigitalOcean
 
