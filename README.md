@@ -1,8 +1,4 @@
-# Configura tu entorno para desarrollo
-
-## Autenticación mediante SSH
-
-Una única vez en tu cliente liviano:
+# Configura tu cliente liviano
 
 1. Crea tu clave SSH con: `ssh-keygen`
 1. Agrega tu clave SSH al agente para hacer _forwarding_
@@ -15,17 +11,23 @@ Una única vez en tu cliente liviano:
 1. Agrega la clave SSH pública de tu estación de trabajo a:
     - [Bitbucket](https://bitbucket.org/account/settings/ssh-keys/) y
     - [GitHub](https://github.com/settings/keys/)
+1. Crea directorio para clonar repositorios:
+    ```shell
+    mkdir --parents ~/repositorios/
+    ```
+1. Verifica instalación:
+    ```shell
+    cd ~/repositorios/
+    git clone git@github.com:devarops/thin_client.git
+    cd thin_client
+    make check
+    ```
 1. Instala [dotfiles](https://github.com/devarops/dotfiles):
     ```shell
+    cd ~/repositorios/
     git clone git@github.com:devarops/dotfiles.git
     cd dotfiles
     make install
-    ```
-1. Configura el cliente liviano:
-    ```shell
-    sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.orig
-    sudo ln -s ~/.config/nixos/configuration.nix /etc/nixos/configuration.nix
-    sudo nixos-rebuild switch --upgrade-all
     ```
 
 ## En DigitalOcean
