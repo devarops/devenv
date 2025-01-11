@@ -9,7 +9,9 @@ SHELL := /bin/bash
 	check_package_versions
 
 check_package_versions:
-	nvim --version | grep "NVIM v0.10"
+	neofetch --version | grep "Neofetch 7\."
+	nvim --version     | grep "NVIM v0.10\."
+	rich --version     | grep "1\."
 
 check_os_version:
 	cat /etc/os-release | grep "24.04"
