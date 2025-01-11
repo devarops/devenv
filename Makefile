@@ -9,7 +9,7 @@ SHELL := /bin/bash
 	check_package_versions
 
 check_package_versions:
-	nvim --version | grep "NVIM v0.9"
+	nvim --version | grep "NVIM v0.10"
 
 check_os_version:
 	cat /etc/os-release | grep "22.04"
