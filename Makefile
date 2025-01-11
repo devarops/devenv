@@ -12,8 +12,8 @@ check_package_versions:
 	nvim --version | grep "NVIM v0.10"
 
 check_os_version:
-	cat /etc/os-release | grep "22.04"
-	cat /etc/os-release | grep "Jammy Jellyfish"
+	cat /etc/os-release | grep "24.04"
+	cat /etc/os-release | grep "Noble Numbat"
 	cat /etc/os-release | grep "LTS"
 
 check: \
