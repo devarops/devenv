@@ -22,6 +22,16 @@
     cd thin_client
     make check
     ```
+    - Instalación del `rich`:
+
+      ```
+      sudo apt install pipx --yes
+      pipx install rich-cli
+      pipx ensurepath
+      ```
+      
+   - En el `~/.bashrc` mover al inicio del archivo las líneas incertadas por `pipx`.
+   
 1. Instala [dotfiles](https://github.com/devarops/dotfiles):
     ```shell
     cd ~/repositorios/
