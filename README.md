@@ -39,6 +39,7 @@
     cd dotfiles
     make install
     ```
+1. Agrega tu [bóveda secreta](https://docs.google.com/document/d/1lY7ycXs4J8wp1OyJCmPsvfB7YdQqscqL52cIZxBP6Rw/).
 
 ## En DigitalOcean
 
